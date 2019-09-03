@@ -1,7 +1,7 @@
 # Face-Clustering
 
 
-`Face Clustering`은 비지도 학습(**Unsupervised Learning**) 기반이다. 
+`Face Clustering`은 비지도 학습(**Unsupervised Learning**) 기반의 얼굴 분류 이다. 
 즉, 기존 지도학습과는 다르게 label된 데이터셋이 필요없다. 
 
 본 코드에서는 Face Clustering 방법을 통해 label 되지 않은 face images 79개를 분류해보았다.
