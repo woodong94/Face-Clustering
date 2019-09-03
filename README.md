@@ -7,7 +7,9 @@
 본 코드에서는 Face Clustering 를 통해 label 되지 않은 face images들을 자동 분류해보았다.
 
 **Reference**
+
 https://www.pyimagesearch.com/2018/07/09/face-clustering-with-python/
+
 `Face Clustering` 구현 코드와 설명이 자세히 나와있다.
 
 
@@ -15,5 +17,5 @@ https://www.pyimagesearch.com/2018/07/09/face-clustering-with-python/
 
 #### 1. 이미지에서 얼굴 추출
 #### 2. 각각의 얼굴 이미지에서 사람의 눈, 코, 입, 턱의 위치와 윤곽을 잡아내고, 그것을 벡터로 인코딩
-#### 3. 인코딩한 결과를 DBSCAN을 이용하여 clustering하는 작업을 거친다.
+#### 3. DBSCAN을 이용하여 인코딩한 결과를 clustering하는 작업을 거친다.
 
