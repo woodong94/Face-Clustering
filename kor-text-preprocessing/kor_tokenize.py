@@ -43,9 +43,27 @@ def tokenize_khaiii(sentence):
 
     return result
 
+from konlpy.tag import Okt
+
+def tokenize_okt(comment):
+    okt = Okt()
+    malist = okt.pos(comment, norm=True, stem=True)
+    r = []
+
+    tag_list = ['Noun', "Verb", 'Adjective', "Adverb", "Determiner", "Exclamation", "Emotion"]
+
+    try:
+        for word, tag in malist:
+            if tag in tag_list:
+                r.append(word)
+        return r
+    except Exception as e:
+        print(e)
+
 if __name__ == '__main__':
     test = "WP는 자신이 코로나 감염증에 ^^^걸렸지만 회복했다고 믿는 이 현상을 해결할 방법으로 ‘항체 검사’를 지목했다."
 
     print("공백 단위 토큰화 결과 : {}".format(tokenize_space(test)))
     print("mecab 결과 : {}".format(tokenize_mecab(test)))
     print("khaiii 결과 : {}".format(tokenize_khaiii(test)))
+    print("okt (twitter) 결과 : {}".format(tokenize_okt(test)))
