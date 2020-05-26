@@ -49,7 +49,7 @@ def clean_text(sentence):
     sentence = remove_brackets(sentence, '(', ')')
     sentence = remove_brackets(sentence, '{', '}')
     # 특수 문자 제거
-    sent_clean = re.sub('[-=+,#/\?:“”^$*\"※~&%ㆍ☞!』\\‘|\(\)\[\]\<\>`\'…》]', ' ', sentence)
+    sent_clean = re.sub('[-■=+,#/\?:“”^$*\"※~&%ㆍ☞!』\\‘|\(\)\[\]\<\>`\'…》]', ' ', sentence)
     # multiple space 제거
     sent_clean = re.sub(' +', ' ', sent_clean)
     sent_clean = " ".join(sent_clean.split())

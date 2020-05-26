@@ -1,4 +1,5 @@
 from konlpy.tag import Mecab
+from konlpy.tag import Okt
 from khaiii import KhaiiiApi
 
 from clean_text import clean_text
@@ -18,14 +19,22 @@ def tokenize_space(sentence):
 
 
 def tokenize_mecab(sentence):
+    """
+    품사 분석을 진행한 뒤 관계언(조사 등)이나 기호를 제거한다.
+    """
     mecab = Mecab()
-
-    sentence = clean_text(sentence)
     tagged = mecab.pos(sentence)
+
     result = []
+
     for word, tag in tagged:
-        #if (tag in ['NNG', 'NNP', 'VV', 'VA']):  # 일반명사, 고유명사, 동사, 형용사 사용
-        result.append(word)
+        if (tag in ['NNP', 'NNG', 'IC']): #  # 일반명사, 고유명사, 동사, 형용사 사용
+            result.append(word)
+        elif (tag in ['VV', 'VA']):
+            result.append(word + '다')
+
+    result = [r for r in result if len(r) > 1]
+
     return result
 
 
@@ -43,7 +52,6 @@ def tokenize_khaiii(sentence):
 
     return result
 
-from konlpy.tag import Okt
 
 def tokenize_okt(comment):
     okt = Okt()
